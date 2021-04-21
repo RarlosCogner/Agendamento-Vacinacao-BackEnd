@@ -1,14 +1,19 @@
-const express = require('express');
-const mongoose = require('mongoose')
+const express = require("express");
+const mongoose = require("mongoose");
+const Routes = require("./Routes/schedule.route");
+require("dotenv").config();
 
-const Routes = require("./Routes")
+const {MONGO_URL, HTTP_PORT} = process.env;
 
-mongoose.connect('mongodb://localhost/Schedules', {useMongoClient: true});
+mongoose.connect(MONGO_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+});
 
 const app = express();
 
 app.use(express.json());
-app.use(Routes);
+app.use('/api', Routes);
 
 
 app.get('/', (req, res) => {
@@ -17,5 +22,5 @@ app.get('/', (req, res) => {
 
 
 
-app.listen(5000)
+app.listen(HTTP_PORT);
 

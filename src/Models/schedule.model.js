@@ -1,15 +1,16 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose")
 
-const scheduleSchema = new mongooseSchema({
+const scheduleSchema = new mongoose.Schema({
     patientName: String,
     patientBirthday: Date,  
     scheduleDay: Date,
-    scheduleHour: Date,
+    scheduleHour: Date
 }, {
 
      timestamp: true
 })
 
-const Schedule = mongoose.model(('schedule', scheduleSchema))
+const ScheduleModel = mongoose.model("patient", scheduleSchema)
 
-module.exports = Schedule;
+
+module.exports = ScheduleModel;

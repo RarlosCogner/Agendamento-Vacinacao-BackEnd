@@ -1,11 +1,11 @@
-const express = require('express');
+const express = require("express");
 
 const ScheduleController = require("../Controllers/schedule.Controller")
 
 const routes = express.Router();
 
-routes.get("/schedule", ScheduleController.index);
-routes.post("/todo", ScheduleController = require(ScheduleController.store))
-
+routes.get("/patient", ScheduleController.index);
+routes.post("/patient", ScheduleController.store)
+Routes.get("/patient/:id", TodoController.getOne);
 
 module.exports = routes;
