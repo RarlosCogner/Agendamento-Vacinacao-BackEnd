@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors")
 const Routes = require("./Routes/schedule.route");
 require("dotenv").config();
 
@@ -12,6 +13,7 @@ mongoose.connect(MONGO_URL, {
 
 const app = express();
 
+app.use(cors())
 app.use(express.json());
 app.use('/api', Routes);
 
@@ -22,5 +24,7 @@ app.get('/', (req, res) => {
 
 
 
-app.listen(HTTP_PORT);
+app.listen(HTTP_PORT, () => {
+    console.log("Servidor Rodando")
+});
 

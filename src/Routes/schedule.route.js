@@ -6,6 +6,7 @@ const routes = express.Router();
 
 routes.get("/patient", ScheduleController.index);
 routes.post("/patient", ScheduleController.store)
-Routes.get("/patient/:id", TodoController.getOne);
+routes.get("/patient/:id", ScheduleController.getOne);
+routes.delete("/patient/:id", ScheduleController.remove)
 
 module.exports = routes;

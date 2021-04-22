@@ -4,7 +4,7 @@ class Schedule{
        async index(req,res) {
         const Schedules = await Patients.find();
 
-        res.send({ Schedules})
+        res.send({ data: Schedules})
        }
        
 
@@ -12,7 +12,7 @@ class Schedule{
            const body = req.body;
            const schedule = await Patients.create(body);
 
-           res.send({ schedule })
+           res.send({ data: schedule })
        }
 
        async getOne(req, res) {
@@ -28,6 +28,24 @@ class Schedule{
 
 
        }
+
+       async remove(req, res) {
+        const { id } = req.params;
+    
+        try {
+          const schedule = await Patients.findById(id);
+    
+          if (!schedule) {
+            return res.send({ message: "Patient not exist" });
+          }
+    
+          await schedule.remove();
+    
+          res.send({ message: "schedule removed" });
+        } catch (error) {
+          res.status(400).send({ message: error.message });
+        }
+      }
 
 
 

@@ -4,7 +4,8 @@ const scheduleSchema = new mongoose.Schema({
     patientName: String,
     patientBirthday: Date,  
     scheduleDay: Date,
-    scheduleHour: Date
+    scheduleHour: Date,
+    _id:Date,
 }, {
 
      timestamp: true
